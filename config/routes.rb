@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/login", to: 'sessions#login'
   post "/attempt_login", to: 'sessions#attempt_login'
   get '/', to: 'sessions#index'
+  get "/logout", to: 'sessions#logout'
+  get "/new", to: 'users#new'
   # get '/comments', to: 'comments#index'
   # get '/comments/new', to: 'comments#new'
   # post '/comments', to: 'comments#create'

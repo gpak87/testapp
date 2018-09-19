@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <p id="notice"><%= notice %></p>
     <%= yield %>
+    <br>
+    <%= link_to 'Log Out', logout_path %>
+
   </body>
 </html>

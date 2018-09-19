@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -31,7 +30,11 @@
       <tr>
         <td><%= comment.comment %></td>
         <td><%= comment.user.nickname %></td>
+
+        <% if session[:user_id] == comment.user.id %>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

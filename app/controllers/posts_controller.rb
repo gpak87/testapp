@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :show_post, only: [:show]
+  before_action :user_post, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -64,12 +65,22 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
+    def show_post
       @post = Post.find(params[:id])
+    end
+
+    def user_post
+      @post = Post.where(id: params[:id], user_id: session[:user_id]).first
+      if @post.nil?
+        redirect_to(action: "index", notice: "Not permitted!" )
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params
+        .require(:post)
+        .permit(:title, :body)
+        .merge(user_id: session[:user_id])
     end
 end

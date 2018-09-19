@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :confirm_logged_in, only: [:new, :create]
+
   def index
     @users = User.all
   end
@@ -10,17 +12,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to users_path, notice: 'User was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @user.save
+      # redirect_to({controller: "sessions", action: "login"}, notice: "You may now log in.")
+
+      session[:user_id] = @user.id
+      session[:nickname] = @user.nickname
+      redirect_to controller: "posts", action: "index"
+
+      #format.html { redirect_to users_path, notice: 'User was successfully created.' }
+    else
+      redirect_to controller: "users", action: "new"
     end
+
   end
 
 
   def user_params
-    params.require(:user).permit(:name, :surname, :nickname, :email)
+    params.require(:user).permit(:name, :surname, :nickname, :email, :password, :password_confirmation)
   end
 end

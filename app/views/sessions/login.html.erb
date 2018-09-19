@@ -1,3 +1,5 @@
+
+
 <div class="login">
   <%= form_tag(action: 'attempt_login'  ) do %>
   <table>
@@ -17,5 +19,6 @@
       <td><%= submit_tag("Log in") %></td>
     </tr>
   </table>
+  <%= link_to 'Register', new_user_path %>
   <% end %>
 </div>
