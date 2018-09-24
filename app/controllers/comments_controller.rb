@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController]
+class CommentsController < ApplicationController
   before_action :show_comment, only: [:show]
   before_action :user_comment, only: [:destroy]
 
