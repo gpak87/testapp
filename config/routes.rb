@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'fleets/new'
+  get 'fleets/create'
+  get 'fleets/update'
+  get 'fleets/destroy'
   resources :posts
   resources :comments, only: [:index, :new, :create, :destroy]
   resources :users, only: [:index, :new, :create]
@@ -8,6 +12,8 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#index'
   get "/logout", to: 'sessions#logout'
   get "/new", to: 'users#new'
+
+  resources :fleets, only: [:show, :new, :edit, :create, :update, :destroy]
   # get '/comments', to: 'comments#index'
   # get '/comments/new', to: 'comments#new'
   # post '/comments', to: 'comments#create'

@@ -1,0 +1,36 @@
+<%= form_with(model: fleet, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :LM %>
+    <%= form.text_field :lm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :CM %>
+    <%= form.text_field :cm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :KR %>
+    <%= form.text_field :kr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :OW %>
+    <%= form.text_field :ow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :PANC %>
+    <%= form.text_field :panc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :NI %>
+    <%= form.text_field :ni %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

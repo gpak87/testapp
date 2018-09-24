@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @fleet = Fleet.where(user: current_user).first
   end
 
   # GET /posts/1

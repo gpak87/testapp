@@ -1,0 +1,39 @@
+<h1>My Fleet</h1>
+<br>
+<p>
+  <strong>User:</strong>
+  <%= @fleet.user.nickname %>
+</p>
+
+<p>
+  <strong>LM:</strong>
+  <%= @fleet.lm %>
+</p>
+
+<p>
+  <strong>CM:</strong>
+  <%= @fleet.cm %>
+</p>
+
+<p>
+  <strong>KR:</strong>
+  <%= @fleet.kr %>
+</p>
+
+<p>
+  <strong>OW:</strong>
+  <%= @fleet.ow %>
+</p>
+
+<p>
+  <strong>PANC:</strong>
+  <%= @fleet.panc %>
+</p>
+
+<p>
+  <strong>NI:</strong>
+  <%= @fleet.ni %>
+</p>
+
+<%= link_to 'Edit', edit_fleet_path(@fleet) %>
+<%= link_to 'Back', posts_path %>
