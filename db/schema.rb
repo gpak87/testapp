@@ -25,10 +25,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_105238) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-<<<<<<< HEAD
-  create_table "posts", force: :cascade do |t|
-=======
-  create_table "fleets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "fleets", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "lm"
     t.integer "cm"
@@ -41,8 +38,7 @@ ActiveRecord::Schema.define(version: 2018_09_24_105238) do
     t.index ["user_id"], name: "index_fleets_on_user_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
->>>>>>> 21419baa7f8d2afc7a725ef3c21958b5c1781319
+  create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false

@@ -34,6 +34,10 @@
 
 <%= link_to 'New Post', new_post_path %>
 <br>
+<% if @fleet.present? %>
 <%= link_to 'My fleet', fleet_path(@fleet.id) %>
+<% else %>
+<%= link_to 'New fleet', new_fleet_path %>
+<% end %>
 <br><br>
 <%= render 'test', test: "test12345" %>
