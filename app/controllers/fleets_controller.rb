@@ -9,10 +9,10 @@ class FleetsController < ApplicationController
   end
 
   def create
-    @fleet = Fleet.new(fleet_params)
+    @fleet = Fleets::Create.new(fleet_params)
 
     if @fleet.save
-      redirect_to @fleet
+      redirect_to @fleet.resource
       # redirect_to fleet_url(@fleet.id)
       #przekierowanie do akcji show
     else
